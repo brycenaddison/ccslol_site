@@ -10,8 +10,13 @@
         {% block fonts %}{% endblock %}
 
         <!-- Stylesheets -->
+        {% load static %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link type="text/css" rel="stylesheet" href="{% static 'styles/page_base.css' %}">
         {% block style %}{% endblock %}
+
+        <!-- Navbar Custom CSS -->
+        <link type="text/css" rel="stylesheet" href="{% static 'styles/page_navbar.css' %}">
 
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -23,7 +28,6 @@
         }
         </script>
         {% block script %}{% endblock %}
-        {% block navbar %}{% endblock %}
 
         <!-- Page Title -->
         <title>
@@ -36,24 +40,44 @@
         <div id="page-container">
             <div class="container-fluid">
 
-                <hr>
+                <!-- Navigation Bar -->
+                <nav id="page-navbar" class="base navbar navbar-expand-md sticky-top flex-md-wrap">
+                    <!-- Collapsed Button -->
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
 
-                <!-- Page Header -->
-                <div class="row">
-                    <!-- Header Body -->
-                    <div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4">
-                        {% block header %}
-
-                        {% endblock %}
+                    <!-- Navigation Links -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dropdown
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="#">Action</a>
+                                    <a class="dropdown-item" href="#">Another action</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="#">Something else here</a>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                            </li>
+                        </ul>
                     </div>
-                </div>
-
-                <hr>
-            
+                </nav>
+                
                 <!-- Page Content -->
                 <div class="row">
                     <!-- Content Body -->
-                    <main role="main" class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4">
+                    <main role="main" class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4 pt-4">
                         {% block content %}
 
                         {% endblock %}
@@ -62,8 +86,6 @@
 
             </div>
         </div>
-
-        <hr>
 
         <footer id="footer">
             <div class="container-fluid">
