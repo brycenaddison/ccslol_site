@@ -9,5 +9,8 @@
     border-width: 0px 0px 1px;
     border-color: #DDD;
     box-shadow: none;
-    
+}
+
+#page-navbar a.active {
+    color: #314357 !important;
 }
