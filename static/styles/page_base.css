@@ -35,6 +35,22 @@ body {
     object-fit: contain;
 }
 
+.nav-font {
+    font-family: "Bebas Neue";
+    font-size: 32px;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: black;
+    transition: .4s;
+}
+
+.nav-item a:hover {
+    text-decoration: none;
+    color: maroon;
+    transition: .4s;
+}
 
 /* SCROLLBAR */
 
