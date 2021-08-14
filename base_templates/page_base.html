@@ -13,10 +13,9 @@
         {% load static %}
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link type="text/css" rel="stylesheet" href="{% static 'styles/page_base.css' %}">
-        {% block style %}{% endblock %}
-
         <!-- Navbar Custom CSS -->
         <link type="text/css" rel="stylesheet" href="{% static 'styles/page_navbar.css' %}">
+        {% block style %}{% endblock %}
 
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
@@ -40,36 +39,32 @@
         <div id="page-container">
             <div class="container-fluid">
 
-                <!-- Navigation Bar -->
-                <nav id="page-navbar" class="base navbar navbar-expand-md sticky-top flex-md-wrap">
-                    <!-- Collapsed Button -->
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
+                <div class="row">
+                    <!-- Navigation Bar -->
+                    <nav id="page-navbar" class="base navbar navbar-expand-md sticky-top flex-md-wrap mx-auto col-10">
+                        <!-- Logo -->
+                        <a class="navbar-brand mr-4" href ="{% url 'page_home:page_home' %}">
+                            <img id="logo" class="mx-auto d-block align-bottom" src="{% static 'assets/logo.png' %}" alt="CSS LoL">
+                        </a>
 
-                    <!-- Navigation Links -->
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mx-auto">
-                            <li class="nav-item">
-                                <a class="nav-link active" href="#">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#">Link</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Dropdown
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Something else here</a>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                        <!-- Collapsed Button -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+
+                        <!-- Navigation Links -->
+                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                            <ul class="navbar-nav">
+                                <li class="nav-item mx-3">
+                                    {% block nav-home %}<a class="nav-link" href="{% url 'page_home:page_home' %}">Home</a>{% endblock %}
+                                </li>
+                                <li class="nav-item mx-3">
+                                    {% block nav-sample %}<a class="nav-link" href="#">Sample</a>{% endblock %}
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
                 
                 <!-- Page Content -->
                 <div class="row">

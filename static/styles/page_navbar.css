@@ -4,13 +4,9 @@
 #page-navbar.base {
     background-color: #FFF;
     margin: 0;
-    padding: 12px 0px 12px;
+    padding: 12px 0px 0px;
     border: solid;
     border-width: 0px 0px 1px;
     border-color: #DDD;
     box-shadow: none;
-}
-
-#page-navbar a.active {
-    color: #314357 !important;
 }
