@@ -3,8 +3,8 @@
 
 #page-navbar.base {
     background-color: #FFF;
-    margin: 0;
-    padding: 12px 0px 0px;
+    margin: 12px 0px 0px;
+    padding: 0;
     border: solid;
     border-width: 0px 0px 1px;
     border-color: #DDD;

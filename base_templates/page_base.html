@@ -42,31 +42,38 @@
         <div id="page-container">
             <div class="container-fluid">
 
-                <div class="row">
-                    <!-- Navigation Bar -->
-                    <nav id="page-navbar" class="base navbar navbar-expand-md sticky-top flex-md-wrap mx-auto col-10">
-                        <!-- Logo -->
-                        <a class="navbar-brand mr-4" href ="{% url 'page_home:homepage' %}">
-                            <img id="logo" class="mx-auto d-block align-bottom" src="{% static 'assets/logo.png' %}" alt="CSS LoL">
-                        </a>
+                <div id="page-navbar" class="row base">
 
-                        <!-- Collapsed Button -->
-                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
+                    <!-- Contain the navbar within the center of the page by columns -->
+                    <div class="mx-auto col-10">
+                        <!-- Navigation Bar -->
+                        <nav class="navbar navbar-expand-md sticky-top flex-md-wrap mx-auto">
 
-                        <!-- Navigation Links -->
-                        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                            <ul class="navbar-nav nav-font">
-                                <li class="nav-item mx-3">
-                                    {% block nav-home %}<a class="nav-link" href="{% url 'page_home:homepage' %}">Home</a>{% endblock %}
-                                </li>
-                                <li class="nav-item mx-3">
-                                    {% block nav-sample %}<a class="nav-link" href="#">Sample</a>{% endblock %}
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
+                            <!-- Logo -->
+                            <a class="navbar-brand mr-4" href ="{% url 'page_home:homepage' %}">
+                                <img id="logo" class="mx-auto d-block align-bottom" src="{% static 'assets/logo.png' %}" alt="CSS LoL">
+                            </a>
+
+                            <!-- Collapsed Button -->
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+
+                            <!-- Navigation Links -->
+                            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                                <ul class="navbar-nav nav-font">
+                                    <li class="nav-item mx-3">
+                                        {% block nav-home %}<a class="nav-link" href="{% url 'page_home:homepage' %}">Home</a>{% endblock %}
+                                    </li>
+                                    <li class="nav-item mx-3">
+                                        {% block nav-sample %}<a class="nav-link" href="#">Sample</a>{% endblock %}
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                        </nav>
+                    </div>
+
                 </div>
                 
                 <!-- Page Content -->
