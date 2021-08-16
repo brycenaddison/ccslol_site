@@ -11,9 +11,7 @@
     background-color: transparent;
     margin: 0;
     padding: 0;
-    border: solid;
-    border-width: 0px 0px 1px;
-    border-color: #DDD;
+    border: none;
     box-shadow: none;
 }
 
