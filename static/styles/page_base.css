@@ -34,35 +34,6 @@ body {
     object-fit: contain;
 }
 
-.nav-font {
-    font-family: "Bebas Neue";
-    font-size: 32px;
-}
-
-.nav-item span {
-    text-decoration: none;
-    color: black;
-    transition: .4s;
-    user-select: none;
-    border: solid;
-    border-width: 0px 0px 1px;
-    border-color: orange;
-}
-
-.nav-item a {
-    text-decoration: none;
-    color: black;
-    transition: .4s;
-    user-select: none;
-}
-
-.nav-item a:hover {
-    text-decoration: none;
-    color: maroon;
-    transition: .4s;
-    user-select: none;
-}
-
 /* SCROLLBAR */
 
 /* width */
