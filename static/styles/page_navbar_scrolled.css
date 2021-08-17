@@ -1,0 +1,51 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* Navbar after scrolled a bit */
+#page-navbar.scrolled {
+    background-color: #FFF;
+    margin: 0 0 29px;
+    padding: 0;
+    border: solid;
+    border-width: 0px 0px 1px;
+    border-color: #DDD;
+    box-shadow: none;
+    transition: .3s;
+}
+
+/* Make text smaller on sticky nav */
+#page-navbar.scrolled .nav-font {
+    font-family: "Bebas Neue";
+    font-size: 28px;
+}
+
+/* Scrolled Logo */
+#page-navbar.scrolled #nav-logo {
+    height: 60px !important;
+    transition: .3s;
+}
+
+/* Scrolled Currently Active Link */
+#page-navbar.scrolled .nav-item span {
+    text-decoration: none;
+    color: maroon;
+    border: none;
+    user-select: none;
+    transition: .3s;
+}
+
+/* Scrolled Accessible Link */
+#page-navbar.scrolled .nav-item a {
+    text-decoration: none;
+    color: black;
+    user-select: none;
+    transition: .3s;
+}
+
+/* Scrolled Accessible Link, Hovered */
+#page-navbar.scrolled .nav-item a:hover {
+    text-decoration: none;
+    color: maroon;
+    user-select: none;
+    transition: .3s;
+}

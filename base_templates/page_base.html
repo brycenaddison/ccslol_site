@@ -18,6 +18,7 @@
         <link type="text/css" rel="stylesheet" href="{% static 'styles/page_base.css' %}">
         <!-- Navbar Custom CSS -->
         <link type="text/css" rel="stylesheet" href="{% static 'styles/page_navbar.css' %}">
+        <link type="text/css" rel="stylesheet" href="{% static 'styles/page_navbar_scrolled.css' %}">
         {% block style %}{% endblock %}
 
         <!-- Scripts -->
@@ -29,6 +30,8 @@
             window.scrollTo(0, 0);
         }
         </script>
+        <script src="{% static 'scripts/page_navbar.js' %}"></script>
+        <script src="{% static 'scripts/parallax.js' %}"></script>
         {% block script %}{% endblock %}
 
         <!-- Page Title -->
@@ -39,19 +42,18 @@
 
     <body>
 
-        <div id="page-container">
+        <div id="page-navbar" class="base sticky-top">
             <div class="container-fluid">
-
-                <div id="page-navbar" class="row base sticky-top">
+                <div class="row">
 
                     <!-- Contain the navbar within the center of the page by columns -->
                     <div class="mx-auto col-10">
                         <!-- Navigation Bar -->
-                        <nav class="navbar navbar-expand-md flex-md-wrap mx-auto">
+                        <nav class="navbar navbar-expand-md flex-md-wrap mx-auto p-0">
 
                             <!-- Logo -->
                             <a class="navbar-brand mr-4" href ="{% url 'page_home:homepage' %}">
-                                <img id="logo" class="mx-auto d-block align-bottom" src="{% static 'assets/logo.png' %}" alt="CSS LoL">
+                                <img id="nav-logo" class="mx-auto d-block align-bottom" src="{% static 'assets/logo.png' %}" alt="CSS LoL">
                             </a>
 
                             <!-- Collapsed Button -->
@@ -73,20 +75,16 @@
                             
                         </nav>
                     </div>
-
+                    
                 </div>
-                
-                <!-- Page Content -->
-                <div class="row">
-                    <!-- Content Body -->
-                    <main role="main" class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4 pt-4">
-                        {% block content %}
-
-                        {% endblock %}
-                    </main>
-                </div>
-
             </div>
+        </div>
+                
+        <!-- Page Content -->
+        <main role="main">
+            <!-- Content Body -->
+            {% block content %}
+            {% endblock %}
         </div>
 
         <footer id="footer">
