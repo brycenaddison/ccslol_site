@@ -4,12 +4,15 @@
 
 {% block fonts %}
 {{ block.super }}
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
 {% endblock %}
 
 
 {% block style %}
 {{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% static 'styles/page_about.css' %}">
 <link type="text/css" rel="stylesheet" href="{% static 'styles/parallax.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'styles/fade.css' %}">
 {% endblock %}
 
 
@@ -32,19 +35,13 @@
 
 
 {% block content %}
-<div id="pantheon_parallax" class="parallax-window" data-speed="0.3" data-parallax="scroll" data-image-src="{% static 'assets/pantheon_splash.jpg' %}">
+<div id="about_parallax" class="parallax-window parallax-spacer" data-speed="0.3" data-parallax="scroll" data-image-src="{% static 'assets/about_bg.jpg' %}">
     <div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4 pt-4">
-        <p> hello inside of parallax bg 1</p>
-        <p> hello inside of parallax bg 2</p>
-        <p> hello inside of parallax bg 3</p>
-        <p> hello inside of parallax bg 4</p>
-        <p> hello inside of parallax bg 5</p>
-        <p> hello inside of parallax bg 6</p>
-        <p> hello inside of parallax bg 7</p>
-        <p> hello inside of parallax bg 8</p>
-        <p> hello inside of parallax bg 9</p>
-        <p> hello inside of parallax bg 10</p>
-        <p> hello inside of parallax bg 11</p>
+        <div id="ccs_summary" class="mx-4">
+            <p class="text-center fade-in">
+                CCS began as a test project back in the summer of 2019, hoping to transform the amateur landscape for players across the board. Back after a long hiatus, the CCS now has the manpower, infrastructure, and drive needed to return once more. Our goal remains the same, create the best league possible for players of all elos. We strive to provide a league that is fair, competent, and competitive.
+            </p>
+        </div>
     </div>
 </div>
 

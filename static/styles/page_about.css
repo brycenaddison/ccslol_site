@@ -1,0 +1,13 @@
+@charset "utf-8";
+/* CSS Document */
+
+
+#ccs_summary {
+    margin-top: 50px;
+}
+
+#ccs_summary p {
+    font-family: "Source Sans Pro";
+    color: white;
+    font-size: 24px;
+}
