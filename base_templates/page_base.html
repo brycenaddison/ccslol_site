@@ -68,7 +68,7 @@
                                         {% block nav-home %}<a class="nav-link" href="{% url 'page_home:homepage' %}">Home</a>{% endblock %}
                                     </li>
                                     <li class="nav-item mx-3">
-                                        {% block nav-sample %}<a class="nav-link" href="#">Sample</a>{% endblock %}
+                                        {% block nav-about %}<a class="nav-link" href="{% url 'page_about:homepage' %}">About</a>{% endblock %}
                                     </li>
                                 </ul>
                             </div>
@@ -85,7 +85,7 @@
             <!-- Content Body -->
             {% block content %}
             {% endblock %}
-        </div>
+        </main>
 
         <footer id="footer">
             <div class="container-fluid">
