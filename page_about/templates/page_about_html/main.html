@@ -25,9 +25,11 @@
 {{ block.super }}
 {% endblock %}
 
+
 {% block nav-about %}
 <span class="nav-link">About</span>
 {% endblock %}
+
 
 {% block header %}
 {{ block.super }}
@@ -71,5 +73,9 @@
 
 
 {% block footer %}
-<p> hello footer </p>
+{{ block.super }}
+{% endblock %}
+
+
+{% block bottom_script %}
 {% endblock %}
