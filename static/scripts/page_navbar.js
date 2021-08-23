@@ -9,7 +9,7 @@ $(function() {
 
         //console.log(top);
 
-        if (scroll > 25) {
+        if (scroll > 20) {
             navbar.addClass("scrolled");
             navbar.removeClass("base");
         } 

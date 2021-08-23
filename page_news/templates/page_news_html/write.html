@@ -1,0 +1,131 @@
+{% extends "page_base.html" %}
+{% load static %}
+
+
+{% block fonts %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% static 'styles/parallax.css' %}">
+{% endblock %}
+
+
+{% block script %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block title %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block nav-news %}
+<span class="nav-link">Articles</span>
+{% endblock %}
+
+
+{% block header %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+<div id="news_parallax" class="parallax-window parallax-spacer" data-speed="0.3" data-parallax="scroll" data-image-src="{% static 'assets/about_bg.jpg' %}"></div>
+
+<div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4 pt-4">
+    <form id="article-form" class="needs-validation" action="" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+
+        <div class="form-group">
+            <label for="article-title">Article Title</label>
+            <input name="article_title" id="article-title" type="text" class="form-control" placeholder="Write your title here..." maxlength="256" required>
+            <div id="article-title-error" class="invalid-feedback">
+                Must enter a title.
+            </div>
+        </div>
+
+        <br>
+
+        <div class="form-group">
+            <label for="article-content">Article Content</label>
+            <textarea name="article_content" id="article-content" class="form-control" placeholder="Write your article here..." required></textarea>
+            <div id="article-content-error" class="invalid-feedback">
+                Must enter content for the article.
+            </div>
+        </div>
+
+        <br>
+
+        <button name='submit' type='submit' class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block bottom_script %}
+<script src="{% static 'scripts/tinymce/tinymce.min.js' %}"></script>
+<script>
+    tinymce.init({
+        selector: '#article-content',  // change this value according to your HTML
+        height: 400,
+        plugins: [
+            'advlist autolink lists link image charmap print preview anchor',
+            'searchreplace visualblocks code fullscreen codesample',
+            'insertdatetime media table paste imagetools wordcount'
+        ],
+        toolbar: 'undo redo | styleselect | fontselect fontsizeselect bold italic | forecolor | alignleft aligncenter alignright alignjustify | link image | bullist numlist outdent indent | codesample',
+    });
+
+
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    (function() {
+        'use strict';
+        window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+            form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+            });
+        }, false);
+    })();
+
+    $("#article-form").submit(function (event) {
+        // Do not actually "submit" the form.
+        event.preventDefault();
+
+        // Stop the submission if the form is incomplete
+        if ($(this)[0].checkValidity() === false) {return;}
+
+        var form_values = $(this).serializeArray();
+        $.ajax({
+            url: "{% url 'api_database:news_post' %}",
+            type: 'post',
+            data: form_values,
+            dataType: 'json',
+            success: function (response) {
+                window.location.replace("{% url 'page_news:root' %}");
+            },
+            error: function (response) {
+                alert("Something went wrong.");
+            }
+        });
+    });
+</script>
+{% endblock %}

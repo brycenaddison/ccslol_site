@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'api_database.apps.ApiDatabaseConfig',
     'page_home.apps.PageHomeConfig',
     'page_about.apps.PageAboutConfig',
     'page_news.apps.PageNewsConfig',

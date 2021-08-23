@@ -9,6 +9,7 @@
 
 {% block style %}
 {{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% static 'styles/parallax.css' %}">
 {% endblock %}
 
 
@@ -33,6 +34,28 @@
 
 
 {% block content %}
+<div id="news_parallax" class="parallax-window parallax-spacer" data-speed="0.3" data-parallax="scroll" data-image-src="{% static 'assets/about_bg.jpg' %}"></div>
+
+<div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4 pt-4">
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+</div>
+
 {% endblock %}
 
 

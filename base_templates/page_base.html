@@ -50,7 +50,7 @@
                         <nav class="navbar navbar-expand-md flex-md-wrap mx-auto p-0">
 
                             <!-- Logo -->
-                            <a class="navbar-brand mr-4" href ="{% url 'page_home:homepage' %}">
+                            <a class="navbar-brand mr-4" href ="{% url 'page_home:root' %}">
                                 <img id="nav-logo" class="mx-auto d-block align-bottom" src="{% static 'assets/logo.png' %}" alt="CSS LoL">
                             </a>
 
@@ -63,13 +63,13 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav nav-font">
                                     <li class="nav-item mx-3">
-                                        {% block nav-home %}<a class="nav-link" href="{% url 'page_home:homepage' %}">Home</a>{% endblock %}
+                                        {% block nav-home %}<a class="nav-link" href="{% url 'page_home:root' %}">Home</a>{% endblock %}
                                     </li>
                                     <li class="nav-item mx-3">
-                                        {% block nav-about %}<a class="nav-link" href="{% url 'page_about:homepage' %}">About</a>{% endblock %}
+                                        {% block nav-about %}<a class="nav-link" href="{% url 'page_about:root' %}">About</a>{% endblock %}
                                     </li>
                                     <li class="nav-item mx-3">
-                                        {% block nav-news %}<a class="nav-link" href="{% url 'page_news:homepage' %}">Articles</a>{% endblock %}
+                                        {% block nav-news %}<a class="nav-link" href="{% url 'page_news:root' %}">Articles</a>{% endblock %}
                                     </li>
                                 </ul>
                             </div>
@@ -80,6 +80,21 @@
                 </div>
             </div>
         </div>
+
+        {% if messages %}
+        <div class="container-fluid" style="position:absolute;">
+            {% for message in messages %}
+            <div class="row">
+                <div class="col-sm-6 mx-auto">
+                    <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                        {{ message }}
+                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
                 
         <!-- Page Content -->
         <main role="main">
