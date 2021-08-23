@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <label for="article-content">Article Content</label>
-            <textarea name="article_content" id="article-content" class="form-control" placeholder="Write your article here..." required></textarea>
+            <textarea name="article_content" id="article-content" class="form-control" placeholder="Write your article here..." required> </textarea>
             <div id="article-content-error" class="invalid-feedback">
                 Must enter content for the article.
             </div>
@@ -86,24 +86,24 @@
         toolbar: 'undo redo | styleselect | fontselect fontsizeselect bold italic | forecolor | alignleft aligncenter alignright alignjustify | link image | bullist numlist outdent indent | codesample',
     });
 
-
     // Example starter JavaScript for disabling form submissions if there are invalid fields
-    (function() {
+    (function () {
         'use strict';
-        window.addEventListener('load', function() {
-            // Fetch all the forms we want to apply custom Bootstrap validation styles to
-            var forms = document.getElementsByClassName('needs-validation');
-            // Loop over them and prevent submission
-            var validation = Array.prototype.filter.call(forms, function(form) {
-            form.addEventListener('submit', function(event) {
-                if (form.checkValidity() === false) {
+
+        // Fetch all the forms we want to apply custom Bootstrap validation styles to
+        var forms = document.querySelectorAll('.needs-validation');
+
+        // Loop over them and prevent submission
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
                     event.preventDefault();
                     event.stopPropagation();
                 }
+
                 form.classList.add('was-validated');
             }, false);
-            });
-        }, false);
+        });
     })();
 
     $("#article-form").submit(function (event) {
