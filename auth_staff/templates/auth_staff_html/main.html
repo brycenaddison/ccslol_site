@@ -1,0 +1,50 @@
+{% extends "page_base.html" %}
+{% load static %}
+
+
+{% block fonts %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block script %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block title %}
+{{ block.super }}
+{% endblock %}
+
+
+{% comment "Staff does not have nav link" %}
+{% block nav %}
+{% endblock %}
+{% endcomment %}
+
+
+{% block header %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-auto px-md-4 pt-4">
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block bottom_script %}
+{% endblock %}
