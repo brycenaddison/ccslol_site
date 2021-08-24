@@ -1,6 +1,23 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* Mobile browsing! */
+@media screen and (max-width: 767px)
+{
+    #page-navbar .mobile-padding {
+        padding: 0;
+    }
+
+    #page-navbar .navbar-toggler {
+        margin-right: 1rem;
+        box-shadow: none;
+    }
+
+    #page-navbar .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.1rem;
+    }
+}
+
 html {
     overflow-y: scroll;
     min-height: 100%;

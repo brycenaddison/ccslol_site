@@ -1,6 +1,24 @@
 @charset "utf-8";
 /* CSS Document */
 
+/* Makes sure navbar does not push content down */
+@media screen and (max-width: 767px)
+{
+    #page-navbar.scrolled .navbar-collapse {
+        position: absolute !important;
+        max-height: none !important;
+        z-index: 20;
+        width: 100%;
+        top: 70px;
+        background-color: #FFF;
+    }
+
+    #page-navbar.scrolled .navbar-toggler {
+        color: rgba(0,0,0,.55);
+        border-color: rgba(0,0,0,.1);
+    }
+}
+
 /* Navbar after scrolled a bit */
 #page-navbar.scrolled {
     background-color: #FFF;
