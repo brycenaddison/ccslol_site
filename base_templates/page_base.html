@@ -40,7 +40,9 @@
 
     <body>
         {% if user.is_authenticated %}
-        <p class="staff"> STAFF </p>
+        <div class="staff">
+            <p class="m-0"> STAFF <a href="{% url 'auth_staff:logout' %}"> logout </a></p>
+        </div>
         {% endif %}
         <div id="page-navbar" class="base sticky-top">
             <div class="container-fluid">
