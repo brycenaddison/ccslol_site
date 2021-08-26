@@ -30,6 +30,16 @@ body {
     padding-bottom: 9rem;
 }
 
+.staff {
+    position: fixed;
+    top: 0;
+    margin: 0;
+    padding: 5px;
+    color: white;
+    background-color: maroon;
+    z-index: 9999;
+}
+
 #footer {
     background-color: #fff;
     position: absolute;

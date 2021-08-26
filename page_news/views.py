@@ -1,5 +1,5 @@
-from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import render, redirect, reverse
 
 # Create your views here.
 
@@ -7,6 +7,8 @@ def root(request):
     return render(request, 'page_news_html/main.html')
 
 
-@login_required
 def write(request):
-    return render(request, 'page_news_html/write.html')
+    if request.user.is_authenticated:
+        return render(request, 'page_news_html/write.html')
+    messages.add_message(request, messages.WARNING, 'You must be signed in to do that!')
+    return redirect(reverse("page_home:root"))

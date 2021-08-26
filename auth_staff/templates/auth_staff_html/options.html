@@ -1,0 +1,71 @@
+{% extends "page_base.html" %}
+{% load static %}
+
+
+{% block fonts %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<style>
+.options {
+    width: 100%;
+    max-width: 750px;
+    margin: 120px auto auto;
+    padding: 35px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 10px;
+}
+
+
+/* Navbar when at top */
+#page-navbar.base {
+    background-color: maroon;
+}
+</style>
+{% endblock %}
+
+
+{% block script %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block title %}
+Log In
+{% endblock %}
+
+
+{% comment "Staff does not have nav link" %}
+{% block nav %}
+{% endblock %}
+{% endcomment %}
+
+
+{% block header %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+<div>
+    <div class="options">
+        <form method="post">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Save changes</button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block footer %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block bottom_script %}
+{% endblock %}

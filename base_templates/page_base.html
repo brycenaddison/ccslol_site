@@ -39,7 +39,9 @@
     </head>
 
     <body>
-
+        {% if user.is_authenticated %}
+        <p class="staff"> STAFF </p>
+        {% endif %}
         <div id="page-navbar" class="base sticky-top">
             <div class="container-fluid">
                 <div class="row">

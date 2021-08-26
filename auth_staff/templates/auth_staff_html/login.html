@@ -1,0 +1,86 @@
+{% extends "page_base.html" %}
+{% load static %}
+
+
+{% block fonts %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<style>
+.login {
+    width: 100%;
+    max-width: 400px;
+    margin: 120px auto auto;
+    padding: 35px;
+    border: 1px solid rgb(192, 192, 192);
+    border-radius: 10px;
+}
+
+
+/* Navbar when at top */
+#page-navbar.base {
+    background-color: maroon;
+}
+</style>
+{% endblock %}
+
+
+{% block script %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block title %}
+Log In
+{% endblock %}
+
+
+{% comment "Staff does not have nav link" %}
+{% block nav %}
+{% endblock %}
+{% endcomment %}
+
+
+{% block header %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="text-center">
+
+    <!-- Using Bootstrap 5.0's Sign-in Template: https://getbootstrap.com/docs/5.0/examples/sign-in/ -->
+    <div class="login">
+        <form method="post">
+            {% csrf_token %}
+            <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+        
+            <div class="form-floating">
+                <input name='username' type="username" class="form-control" id="floatingInput" placeholder="Username" required>
+                <label for="floatingInput">Username</label>
+            </div>
+            <div class="form-floating">
+                <input name='password' type="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+                <label for="floatingPassword">Password</label>
+            </div>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+        </form>
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block bottom_script %}
+{% endblock %}
