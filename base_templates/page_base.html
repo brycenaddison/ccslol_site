@@ -40,7 +40,7 @@
 
     <body>
         {% if user.is_authenticated %}
-        <div class="staff">
+        <div class="staff-status">
             <p class="m-0"> STAFF <a href="{% url 'auth_staff:logout' %}"> logout </a></p>
         </div>
         {% endif %}
@@ -115,6 +115,13 @@
                     <!-- Footer Body -->
                     <div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-auto px-md-4">
                         {% block footer %}
+                        <div class="text-center m-2">
+                            <a class="footer-link" href="{% url 'auth_staff:login' %}">login</a>
+                            <a class="footer-link" href="https://www.twitch.tv/ccs_lol"><img alt="Twitch" src="{% static 'assets/twitch_logo.png' %}" height="30"></a>
+                            <a class="footer-link" href="https://www.twitter.com/ccs_lol"><img alt="Twitter" src="{% static 'assets/twitter_logo.png' %}" height="30"></a>
+                            <a class="footer-link" href="https://www.youtube.com/channel/UCGqyv9sQMj655WFm2NvSGzQ"><img alt="Youtube" src="{% static 'assets/youtube_logo.png' %}" height="30"></a>
+                            <a class="footer-link" href="https://www.reddit.com/r/ccs_lol"><img alt="Reddit" src="{% static 'assets/reddit_logo.png' %}" height="30"></a>
+                        </div>
                         <p>© 2021 Classic Championship Series, All Rights Reserved</p>
                         {% endblock %}
                     </div>
