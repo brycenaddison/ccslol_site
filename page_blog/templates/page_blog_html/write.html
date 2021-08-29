@@ -23,8 +23,8 @@
 {% endblock %}
 
 
-{% block nav-news %}
-<span class="nav-link">Articles</span>
+{% block nav-blog %}
+<span class="nav-link">Blog</span>
 {% endblock %}
 
 
@@ -34,7 +34,7 @@
 
 
 {% block content %}
-<div id="news_parallax" class="parallax-window parallax-spacer" data-speed="0.3" data-parallax="scroll" data-image-src="{% static 'assets/about_bg.jpg' %}"></div>
+<div id="blog_parallax" class="parallax-window parallax-spacer" data-speed="0.3" data-parallax="scroll" data-image-src="{% static 'assets/about_bg.jpg' %}"></div>
 
 <div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-sm-auto px-md-4 pt-4">
     <form id="article-form" class="needs-validation" action="" enctype="multipart/form-data" novalidate>
@@ -115,12 +115,12 @@
 
         var form_values = $(this).serializeArray();
         $.ajax({
-            url: "{% url 'api_database:news_post' %}",
+            url: "{% url 'api_database:blog_post' %}",
             type: 'post',
             data: form_values,
             dataType: 'json',
             success: function (response) {
-                window.location.replace("{% url 'page_news:root' %}");
+                window.location.replace("{% url 'page_blog:root' %}");
             },
             error: function (response) {
                 alert("Something went wrong.");

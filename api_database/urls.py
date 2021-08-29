@@ -4,5 +4,5 @@ from . import views
 
 app_name = 'api_database'
 urlpatterns = [
-    path('news/post', views.news_post, name='news_post'),
+    path('blog/post', views.blog_post, name='blog_post'),
 ]

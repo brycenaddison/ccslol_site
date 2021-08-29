@@ -35,7 +35,7 @@ INSTALLED_APPS = [
     'auth_staff.apps.AuthStaffConfig',
     'page_home.apps.PageHomeConfig',
     'page_about.apps.PageAboutConfig',
-    'page_news.apps.PageNewsConfig',
+    'page_blog.apps.PageBlogConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

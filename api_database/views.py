@@ -8,7 +8,7 @@ from api_database.models import Article
 # Create your views here.
 
 @require_POST
-def news_post(request):
+def blog_post(request):
     if request.is_ajax() and request.user.is_authenticated:
         article_title = request.POST.get('article_title')
         article_content = request.POST.get('article_content')
