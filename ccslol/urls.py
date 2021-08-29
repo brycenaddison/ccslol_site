@@ -20,7 +20,11 @@ urlpatterns = [
     path('', include('page_home.urls')),
     path('about/', include('page_about.urls')),
     path('blog/', include('page_blog.urls')),
-    path('api/', include('api_database.urls')),
+    path('playoffs/', include('page_playoffs.urls')),
+    path('schedule/', include('page_schedule.urls')),
+    path('standings/', include('page_standings.urls')),
+    # Non user-facing
+    path('api/', include('backend_api.urls')),
     path('admin/', admin.site.urls),
     path('staff/', include('auth_staff.urls')),
 ]

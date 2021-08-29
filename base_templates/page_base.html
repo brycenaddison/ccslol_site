@@ -23,11 +23,6 @@
 
         <!-- Scripts -->
         <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
-        <script>
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
-        }
-        </script>
         <script src="{% static 'scripts/page_navbar.js' %}"></script>
         <script src="{% static 'scripts/parallax.js' %}"></script>
         {% block script %}{% endblock %}
@@ -74,6 +69,28 @@
                                     </li>
                                     <li class="nav-item mx-3">
                                         {% block nav-blog %}<a class="nav-link" href="{% url 'page_blog:root' %}">Blog</a>{% endblock %}
+                                    </li>
+                                    <li class="nav-item mx-3 dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                            Game
+                                        </a>
+                                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                            <li>
+                                                {% block nav-playoffs %}
+                                                <a class="dropdown-item" href="{% url 'page_playoffs:root' %}">Playoffs</a>
+                                                {% endblock %}
+                                            </li>
+                                            <li>
+                                                {% block nav-schedule %}
+                                                <a class="dropdown-item" href="{% url 'page_schedule:root' %}">Schedule</a>
+                                                {% endblock %}
+                                            </li>
+                                            <li>
+                                                {% block nav-standings %}
+                                                <a class="dropdown-item" href="{% url 'page_standings:root' %}">Standings</a>
+                                                {% endblock %}
+                                            </li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>

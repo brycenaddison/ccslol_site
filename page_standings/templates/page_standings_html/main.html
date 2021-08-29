@@ -1,0 +1,69 @@
+{% extends "page_base.html" %}
+{% load static %}
+
+
+{% block fonts %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% static 'styles/page_about.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'styles/parallax.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'styles/fade.css' %}">
+{% endblock %}
+
+
+{% block script %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block title %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block nav-standings %}
+<span class="dropdown-item">Standings</span>
+{% endblock %}
+
+
+{% block header %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block content %}
+
+<div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-auto px-md-4 pt-4">
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+    <p> hello body </p>
+</div>
+
+{% endblock %}
+
+
+{% block footer %}
+{{ block.super }}
+{% endblock %}
+
+
+{% block bottom_script %}
+{% endblock %}

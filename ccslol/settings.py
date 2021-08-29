@@ -31,11 +31,15 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'api_database.apps.ApiDatabaseConfig',
     'auth_staff.apps.AuthStaffConfig',
-    'page_home.apps.PageHomeConfig',
+    'backend_api.apps.BackendApiConfig',
+    'backend_database.apps.BackendDatabaseConfig',
     'page_about.apps.PageAboutConfig',
     'page_blog.apps.PageBlogConfig',
+    'page_home.apps.PageHomeConfig',
+    'page_playoffs.apps.PagePlayoffsConfig',
+    'page_schedule.apps.PageScheduleConfig',
+    'page_standings.apps.PageStandingsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

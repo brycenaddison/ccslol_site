@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class ApiDatabaseConfig(AppConfig):
+class PageScheduleConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'api_database'
+    name = 'page_schedule'

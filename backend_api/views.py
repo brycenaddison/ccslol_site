@@ -3,7 +3,7 @@ from django.http import JsonResponse, HttpResponseForbidden, HttpResponseBadRequ
 from django.shortcuts import render
 from django.views.decorators.http import require_POST
 
-from api_database.models import Article
+from backend_database.models import Article
 
 # Create your views here.
 

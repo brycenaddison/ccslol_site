@@ -52,7 +52,7 @@
 
         <div class="form-group">
             <label for="article-content">Article Content</label>
-            <textarea name="article_content" id="article-content" class="form-control" placeholder="Write your article here..." required> </textarea>
+            <textarea name="article_content" id="article-content" class="form-control" placeholder="Write your article here..." required></textarea>
             <div id="article-content-error" class="invalid-feedback">
                 Must enter content for the article.
             </div>
@@ -84,6 +84,11 @@
             'insertdatetime media table paste imagetools wordcount'
         ],
         toolbar: 'undo redo | styleselect | fontselect fontsizeselect bold italic | forecolor | alignleft aligncenter alignright alignjustify | link image | bullist numlist outdent indent | codesample',
+        setup: function (editor) {
+            editor.on('change', function (e) {
+                editor.save();
+            });
+        }
     });
 
     // Example starter JavaScript for disabling form submissions if there are invalid fields
@@ -115,7 +120,7 @@
 
         var form_values = $(this).serializeArray();
         $.ajax({
-            url: "{% url 'api_database:blog_post' %}",
+            url: "{% url 'backend_api:blog_post' %}",
             type: 'post',
             data: form_values,
             dataType: 'json',
