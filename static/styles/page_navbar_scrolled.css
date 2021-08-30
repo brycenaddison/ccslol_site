@@ -74,15 +74,16 @@
 }
 
 /* Maintain dropdown-item consistency */
-#page-navbar.base .nav-item a.inactive.dropdown-item {
+#page-navbar.scrolled .nav-item a.dropdown-item.inactive {
     color: black;
     padding: .25rem 1rem;
     transition: .2s;
 }
 
 /* Dropdown box background is white, so mimic style of scrolled menu */
-#page-navbar.base .nav-item a.active.dropdown-item {
+#page-navbar.scrolled .nav-item a.dropdown-item.active {
     color: maroon;
     padding: .25rem 1rem;
     transition: .2s;
+    background-color: white;
 }
