@@ -7,7 +7,30 @@ from backend_database.models import Article
 # Create your views here.
 
 def root(request):
-    return render(request, 'page_blog_html/main.html')
+    try:
+        count = int(request.GET.get('page', '1'))
+    except:
+        count = 1
+    if count < 1:
+        count = 1
+
+    per_page = 10
+    page_count = (Article.objects.count() // per_page) + 1
+    page_range = range(1, page_count + 1)
+
+    if count not in page_range:
+        return redirect('{}?page=1'.format(reverse("page_blog:root")))
+
+    articles = Article.objects.order_by("-date_posted")[per_page * (count - 1):per_page * count]
+
+    context = {
+        "articles": articles,
+        "page_range": page_range,
+        "page_current": count,
+        "page_max": (Article.objects.count() // per_page) + 1,
+    }
+
+    return render(request, 'page_blog_html/main.html', context)
 
 
 def write(request):
@@ -21,11 +44,12 @@ def view_article(request, article_id):
     article = Article.objects.filter(id=article_id)
     
     context = {
-        "article": article[0],
-        "article_date_converted": convert_to_localtime(article[0].date_posted)
+        "article": article[0]
     }
     return render(request, 'page_blog_html/article.html', context)
 
+
+# Timezones
 import pytz
 
 def convert_to_localtime(utctime):

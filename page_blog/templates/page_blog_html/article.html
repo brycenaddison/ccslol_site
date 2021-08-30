@@ -16,11 +16,12 @@
 
 
 {% block article %}
+<a href="{% url 'page_blog:root' %}">&laquo; Back</a>
 <h2 class="article-title">
     {{ article.title }}
 </h2>
 <p class="article-post-details">
-    {{ article_date_converted|date:"F j, o. g:i A" }} | {{ article.author }}
+    {{ article.date_posted|date:"F j, o, g:i A" }} | {{ article.author }}
 </p>
 <div class="article-content">
     {{ article.content|safe }}

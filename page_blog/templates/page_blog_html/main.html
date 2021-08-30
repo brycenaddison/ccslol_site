@@ -10,6 +10,7 @@
 {% block style %}
 {{ block.super }}
 <link type="text/css" rel="stylesheet" href="{% static 'styles/parallax.css' %}">
+<link type="text/css" rel="stylesheet" href="{% static 'styles/page_blog.css' %}">
 {% endblock %}
 
 
@@ -35,23 +36,54 @@
 
 {% block content %}
 <div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-auto px-md-4 pt-4">
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
+    <div id="article-list">
+        {% for article in articles %}
+        <div class="article-post">
+            <h5 class="article-title">
+                <a href="{% url 'page_blog:view_article' article_id=article.id %}">{{ article.title }}</a>
+            </h5>
+            <p class="article-post-details">
+                {{ article.date_posted|date:"F j, o, g:i A" }} | {{ article.author }}
+            </p>
+        </div>
+        {% if not forloop.last %}
+        <hr>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <nav>
+        <ul class="pagination">
+            <li class="page-item
+                       {% if page_current <= 1 %}
+                       disabled
+                       {% endif %}
+                       ">
+                <a class="page-link" href="{% url 'page_blog:root' %}?page={{ page_current|add:"-1" }}" aria-label="Previous">
+                    <span aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+            {% for i in page_range %}
+            <li class="page-item 
+                       {% if i == page_current %}
+                       active
+                       {% endif %}
+                       ">
+                <a class="page-link" href="{% url 'page_blog:root' %}?page={{ i }}">
+                    {{ i }}
+                </a>
+            </li>
+            {% endfor %}
+            <li class="page-item
+                       {% if page_current >= page_max %}
+                       disabled
+                       {% endif %}
+                       ">
+                <a class="page-link" href="{% url 'page_blog:root' %}?page={{ page_current|add:"1" }}" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+        </ul>
+      </nav>
 </div>
 
 {% endblock %}
