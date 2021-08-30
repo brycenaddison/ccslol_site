@@ -44,7 +44,7 @@
 }
 
 /* Scrolled Currently Active Link */
-#page-navbar.scrolled .nav-item span {
+#page-navbar.scrolled .nav-item a.active {
     text-decoration: none;
     color: maroon;
     border: none;
@@ -53,7 +53,7 @@
 }
 
 /* Scrolled Accessible Link */
-#page-navbar.scrolled .nav-item a {
+#page-navbar.scrolled .nav-item a.inactive {
     text-decoration: none;
     color: black;
     user-select: none;
@@ -61,7 +61,7 @@
 }
 
 /* Scrolled Accessible Link, Hovered */
-#page-navbar.scrolled .nav-item a:hover {
+#page-navbar.scrolled .nav-item a.inactive:hover {
     text-decoration: none;
     color: maroon;
     user-select: none;
@@ -74,14 +74,14 @@
 }
 
 /* Maintain dropdown-item consistency */
-#page-navbar.base .nav-item a.dropdown-item {
+#page-navbar.base .nav-item a.inactive.dropdown-item {
     color: black;
     padding: .25rem 1rem;
     transition: .2s;
 }
 
 /* Dropdown box background is white, so mimic style of scrolled menu */
-#page-navbar.base .nav-item span.dropdown-item {
+#page-navbar.base .nav-item a.active.dropdown-item {
     color: maroon;
     padding: .25rem 1rem;
     transition: .2s;

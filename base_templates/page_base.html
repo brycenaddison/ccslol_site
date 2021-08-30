@@ -62,33 +62,27 @@
                             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul class="navbar-nav nav-font">
                                     <li class="nav-item mx-3">
-                                        {% block nav-home %}<a class="nav-link" href="{% url 'page_home:root' %}">Home</a>{% endblock %}
+                                        <a class="nav-link {% block nav-home %}inactive{% endblock %}" href="{% url 'page_home:root' %}">Home</a>
                                     </li>
                                     <li class="nav-item mx-3">
-                                        {% block nav-about %}<a class="nav-link" href="{% url 'page_about:root' %}">About</a>{% endblock %}
+                                        <a class="nav-link {% block nav-about %}inactive{% endblock %}" href="{% url 'page_about:root' %}">About</a>
                                     </li>
                                     <li class="nav-item mx-3">
-                                        {% block nav-blog %}<a class="nav-link" href="{% url 'page_blog:root' %}">Blog</a>{% endblock %}
+                                        <a class="nav-link {% block nav-blog %}inactive{% endblock %}" href="{% url 'page_blog:root' %}">Blog</a>
                                     </li>
                                     <li class="nav-item mx-3 dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <a class="nav-link dropdown-toggle {% block nav-game %}inactive{% endblock %}" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             Game
                                         </a>
                                         <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                             <li>
-                                                {% block nav-playoffs %}
-                                                <a class="dropdown-item" href="{% url 'page_playoffs:root' %}">Playoffs</a>
-                                                {% endblock %}
+                                                <a class="dropdown-item {% block nav-playoffs %}inactive{% endblock %}" href="{% url 'page_playoffs:root' %}">Playoffs</a>
                                             </li>
                                             <li>
-                                                {% block nav-schedule %}
-                                                <a class="dropdown-item" href="{% url 'page_schedule:root' %}">Schedule</a>
-                                                {% endblock %}
+                                                <a class="dropdown-item {% block nav-schedule %}inactive{% endblock %}" href="{% url 'page_schedule:root' %}">Schedule</a>
                                             </li>
                                             <li>
-                                                {% block nav-standings %}
-                                                <a class="dropdown-item" href="{% url 'page_standings:root' %}">Standings</a>
-                                                {% endblock %}
+                                                <a class="dropdown-item {% block nav-standings %}inactive{% endblock %}" href="{% url 'page_standings:root' %}">Standings</a>
                                             </li>
                                         </ul>
                                     </li>
