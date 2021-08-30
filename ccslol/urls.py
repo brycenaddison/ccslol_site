@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path, include
+from django.urls import path, include, re_path
 
 urlpatterns = [
     path('', include('page_home.urls')),
@@ -27,4 +27,6 @@ urlpatterns = [
     path('api/', include('backend_api.urls')),
     path('admin/', admin.site.urls),
     path('staff/', include('auth_staff.urls')),
+    # Timezone detection (django-tz-detect)
+    re_path(r'^tz_detect/', include('tz_detect.urls'))
 ]

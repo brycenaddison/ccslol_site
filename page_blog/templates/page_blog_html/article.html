@@ -1,0 +1,28 @@
+{% extends "page_blog_html/article_template.html" %}
+{% load static %}
+
+
+{% block fonts %}
+{{ block.super }}
+<link href="https://fonts.googleapis.com/css2?family=Kaisei+HarunoUmi:wght@500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway&display=swap" rel="stylesheet">
+{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<link type="text/css" rel="stylesheet" href="{% static 'styles/page_blog_article.css' %}">
+{% endblock %}
+
+
+{% block article %}
+<h2 class="article-title">
+    {{ article.title }}
+</h2>
+<p class="article-post-details">
+    {{ article_date_converted|date:"F j, o. g:i A" }} | {{ article.author }}
+</p>
+<div class="article-content">
+    {{ article.content|safe }}
+</div>
+{% endblock %}
