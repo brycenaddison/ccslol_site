@@ -41,19 +41,24 @@ active
     {% endif %}
 
     <div id="article-list">
-        {% for article in articles %}
-        <div class="article-post">
-            <h5 class="article-title">
-                <a href="{% url 'page_blog:view_article' article_id=article.id %}">{{ article.title }}</a>
-            </h5>
-            <p class="article-post-details">
-                {{ article.date_posted|date:"F j, o, g:i A" }} | {{ article.author }}
-            </p>
-        </div>
-        {% if not forloop.last %}
-        <hr>
+        {% if articles %}
+            {% for article in articles %}
+            <div class="article-post">
+                <h5 class="article-title">
+                    <a href="{% url 'page_blog:view_article' article_id=article.id %}">{{ article.title }}</a>
+                </h5>
+                <p class="article-post-details">
+                    {{ article.date_posted|date:"F j, o, g:i A" }} | {{ article.author }}
+                </p>
+            </div>
+            {% if not forloop.last %}
+            <hr>
+            {% endif %}
+            {% endfor %}
+        {% else %}
+        <h4>No articles have been written yet!</h4>
         {% endif %}
-        {% endfor %}
+        
     </div>
     <nav>
         <ul class="pagination">
