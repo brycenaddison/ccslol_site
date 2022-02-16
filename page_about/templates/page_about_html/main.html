@@ -48,23 +48,33 @@ active
 {% block content %}
 
 <div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-auto px-md-4 pt-4">
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
-    <p> hello body </p>
+    <div id="ccs_support" class="mx-4">
+        <p class="text-center fade-in">
+            We have a few ways to support the league if you choose to.
+        </p>
+        <p class="text-center fade-in">
+            If you do, we will feature you in a special donor role (if you would like us to), discuss with you how that money will be spent for the betterment of the league, and invite you to have a donor/admin meeting at some point to express our thanks and talk to you about the league you support. 
+        </p>
+        <p class="text-center fade-in">
+            You can support the league through PayPal donation, Patreon subscription, or Twitch subscription!
+        </p>
+        <br>
+        <div class="d-flex justify-content-center fade-in">
+            <a href="https://paypal.me/classicseries" class="mx-5">
+                <img alt="PayPal" src="{% static 'assets/paypal_logo_about.png' %}" height="128">
+            </a>
+            <a href="https://www.patreon.com/ccs_lol" class="mx-5">
+                <img alt="Patreon" src="{% static 'assets/patreon_logo_about.png' %}" height="128">
+            </a>
+            <a href="https://www.twitch.tv/ccs_lol" class="mx-5">
+                <img alt="Twitch" src="{% static 'assets/twitch_logo_about.png' %}" height="128">
+            </a>
+        </div>
+        <br>
+        <p class="text-center fade-in">
+            We appreciate all donations! If you do donate, please let us know.
+        </p>
+    </div>
 </div>
 
 {% endblock %}

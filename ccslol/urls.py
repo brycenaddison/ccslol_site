@@ -23,6 +23,7 @@ urlpatterns = [
     path('playoffs/', include('page_playoffs.urls')),
     path('schedule/', include('page_schedule.urls')),
     path('standings/', include('page_standings.urls')),
+    path('twitch/', include('page_twitch.urls')),
     # Non user-facing
     path('api/', include('backend_api.urls')),
     path('admin/', admin.site.urls),

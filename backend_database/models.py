@@ -15,3 +15,52 @@ class Article(models.Model):
     
     def __str__(self):
         return self.title + ', by ' + self.author.username + ', last edited ' + str(self.last_edited)
+
+
+class Season(models.Model):
+
+    name = models.CharField(max_length=64, unique=True)
+    date_created = models.DateTimeField(default=timezone.now)
+
+
+class Role(models.Model):
+
+    name = models.CharField(max_length=16, unique=True)
+
+
+class Team(models.Model):
+
+    name = models.CharField(max_length=64)
+    season = models.ForeignKey(Season, null=True, on_delete=models.SET_NULL)
+    game_wins = models.IntegerField(default=0)
+    game_losses = models.IntegerField(default=0)
+    match_wins = models.IntegerField(default=0)
+    match_losses = models.IntegerField(default=0)
+    date_created = models.DateTimeField(default=timezone.now)
+
+
+class Player(models.Model):
+
+    name = models.CharField(max_length=64)
+    season = models.ForeignKey(Season, null=True, on_delete=models.SET_NULL)
+    team = models.ForeignKey(Team, null=True, on_delete=models.SET_NULL)
+    role = models.ForeignKey(Role, null=True, on_delete=models.SET_NULL)
+    is_sub = models.BooleanField(default=False)
+    date_created = models.DateTimeField(default=timezone.now)
+
+
+class Match(models.Model):
+
+    season = models.ForeignKey(Season, null=True, on_delete=models.SET_NULL)
+    winner = models.ForeignKey(Team, null=True, on_delete=models.SET_NULL, related_name="match_winner")
+    loser = models.ForeignKey(Team, null=True, on_delete=models.SET_NULL, related_name="match_loser")
+    winner_score = models.IntegerField(default=0)
+    loser_score = models.IntegerField(default=0)
+
+
+class Game(models.Model):
+
+    season = models.ForeignKey(Season, null=True, on_delete=models.SET_NULL)
+    match = models.ForeignKey(Match, null=True, on_delete=models.SET_NULL)
+    winner = models.ForeignKey(Team, null=True, on_delete=models.SET_NULL, related_name="game_winner")
+    loser = models.ForeignKey(Team, null=True, on_delete=models.SET_NULL, related_name="game_loser")

@@ -6,8 +6,13 @@ from django.views.decorators.http import require_http_methods, require_GET
 
 # Create your views here.
 
+@require_GET
 def root(request):
-    return render(request, 'auth_staff_html/main.html')
+    if request.user.is_authenticated:
+        return render(request, 'auth_staff_html/main.html')
+    
+    messages.add_message(request, messages.WARNING, 'You must be signed in to do that!')
+    return redirect(reverse("page_home:root"))
 
 
 @require_http_methods(["GET", "POST"])
@@ -46,12 +51,12 @@ def staff_logout(request):
 
 
 @require_http_methods(["GET", "POST"])
-def staff_options(request):
+def staff_password(request):
     if request.user.is_authenticated:
         # Allow the user to change their password
         if request.method == 'GET':
             form = PasswordChangeForm(request.user)
-            return render(request, 'auth_staff_html/options.html', {'form': form})
+            return render(request, 'auth_staff_html/password.html', {'form': form})
 
         # Validate their credentials before changing password
         elif request.method == 'POST':
@@ -67,7 +72,7 @@ def staff_options(request):
             # Invalid :(
             else:
                 messages.add_message(request, messages.ERROR, 'Please correct the error below.')
-                return render(request, 'auth_staff_html/options.html', {'form': form})
+                return render(request, 'auth_staff_html/password.html', {'form': form})
 
     # User tries to access options without being signed in?
     messages.add_message(request, messages.WARNING, 'You must be signed in to do that!')

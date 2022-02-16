@@ -30,6 +30,10 @@ body {
     padding-bottom: 9rem;
 }
 
+a {
+    text-decoration: none;
+}
+
 .footer-link {
     margin: 0 20px 0;
     color: darkslategray;

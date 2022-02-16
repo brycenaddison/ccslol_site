@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+
+.article-title {
+    font-family: "Kaisei HarunoUmi";
+    margin-bottom: .25rem;
+    font-size: 2.5rem;
+}
+
+.article-post-details {
+    margin-bottom: 1.25rem;
+    color: #727272;
+}
+
+.article-content {
+    font-family: "Raleway";
+}
+
+#home-slogan {
+    font-family: 'Red Hat Display', sans-serif;
+    font-size: 3em;
+    text-align: center;
+    text-shadow: 0px 3px 10px black;
+    color: white;
+    min-height: 90vh;
+}
+
+#home-article {
+}

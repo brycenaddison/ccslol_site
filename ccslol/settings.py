@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'page_playoffs.apps.PagePlayoffsConfig',
     'page_schedule.apps.PageScheduleConfig',
     'page_standings.apps.PageStandingsConfig',
+    'page_twitch.apps.PageTwitchConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
