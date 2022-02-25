@@ -17,4 +17,4 @@ def root(request):
 
 
 def riot_txt(request):
-    return HttpResponse('df06b387-40e3-4a1a-a2db-1759c90669d9')
+    return HttpResponse('d287159e-e412-4645-b764-1db4d94eb852')
