@@ -21,9 +21,12 @@
     {{ article.title }}
 </h2>
 <p class="article-post-details">
-    {{ article.date_posted|date:"F j, o, g:i A" }} | {{ article.author }}
+    Posted by {{ article.author }} | {{ article.date_posted|date:"F j, o, g:i A" }}
     {% if article.date_posted != article.last_edited %}
-    | Last edited: {{ article.last_edited|date:"F j, o, g:i A" }}
+    <br>
+    <span style="font-size:12px">
+        Last edited by {{ article.last_edited_by }} | {{ article.last_edited|date:"F j, o, g:i A" }}
+    </span>
     {% endif %}
     <br>
     {% if user.is_authenticated %}
