@@ -22,6 +22,10 @@
 </h2>
 <p class="article-post-details">
     {{ article.date_posted|date:"F j, o, g:i A" }} | {{ article.author }}
+    <br>
+    {% if user.is_authenticated %}
+    <a href="{% url 'page_blog:edit_article' article_id=article.id %}" role="button">Edit</a>
+    {% endif %}
 </p>
 <div class="article-content">
     {{ article.content|safe }}

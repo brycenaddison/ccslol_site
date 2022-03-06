@@ -25,3 +25,31 @@ def blog_post(request):
         return JsonResponse({})
 
     return HttpResponseForbidden()
+
+
+@require_POST
+def blog_edit(request):
+    if request.is_ajax() and request.user.is_authenticated:
+        article_id = request.POST.get('article_id')
+        article_title = request.POST.get('article_title')
+        article_content = request.POST.get('article_content')
+
+        if not article_id or not article_title or not article_content:
+            return HttpResponseBadRequest()
+
+        article_query = Article.objects.filter(id=article_id)
+        
+        if article_query.exists():
+            article = article_query[0]
+            article.title = article_title
+            article.content = article_content
+            article.save()
+
+            messages.add_message(request, messages.SUCCESS, "Article edited!")
+            return JsonResponse({})
+        
+        else:
+            messages.add_message(request, messages.ERROR, "Article does not exist at that ID!")
+            return HttpResponseBadRequest()
+
+    return HttpResponseForbidden()

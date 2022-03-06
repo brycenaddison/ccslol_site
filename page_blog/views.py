@@ -33,20 +33,41 @@ def root(request):
     return render(request, 'page_blog_html/main.html', context)
 
 
-def write(request):
+def write_article(request):
     if request.user.is_authenticated:
         return render(request, 'page_blog_html/write.html')
-    messages.add_message(request, messages.WARNING, 'You must be signed in to do that!')
-    return redirect(reverse("page_home:root"))
+    else:
+        messages.add_message(request, messages.WARNING, 'You must be signed in to do that!')
+    return redirect(reverse("page_blog:root"))
+
+
+def edit_article(request, article_id):
+    if request.user.is_authenticated:
+        article_query = Article.objects.filter(id=article_id)
+
+        if article_query.exists():
+            context = {
+                "article": article_query[0]
+            }
+
+            return render(request, 'page_blog_html/edit.html', context)
+    else:
+        messages.add_message(request, messages.WARNING, 'You must be signed in to do that!')
+
+    return redirect(reverse("page_blog:root"))
 
 
 def view_article(request, article_id):
-    article = Article.objects.filter(id=article_id)
+    article_query = Article.objects.filter(id=article_id)
     
-    context = {
-        "article": article[0]
-    }
-    return render(request, 'page_blog_html/article.html', context)
+    if article_query.exists():
+        context = {
+            "article": article_query[0]
+        }
+        
+        return render(request, 'page_blog_html/article.html', context)
+    
+    return redirect(reverse("page_blog:root"))
 
 
 # Timezones

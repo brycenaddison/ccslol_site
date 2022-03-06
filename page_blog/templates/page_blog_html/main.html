@@ -37,7 +37,7 @@ active
 {% block content %}
 <div class="col-xl-7 col-lg-8 col-md-9 col-11 mx-auto px-md-4 pt-4">
     {% if user.is_authenticated %}
-    <a class="btn btn-outline-primary" href="{% url 'page_blog:write' %}" role="button">Write a new article</a>
+    <a class="btn btn-outline-primary" href="{% url 'page_blog:write_article' %}" role="button">Write a new article</a>
     {% endif %}
 
     <div id="article-list">
