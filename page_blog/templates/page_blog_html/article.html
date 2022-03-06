@@ -22,6 +22,9 @@
 </h2>
 <p class="article-post-details">
     {{ article.date_posted|date:"F j, o, g:i A" }} | {{ article.author }}
+    {% if article.date_posted != article.last_edited %}
+    | Last edited: {{ article.last_edited|date:"F j, o, g:i A" }}
+    {% endif %}
     <br>
     {% if user.is_authenticated %}
     <a href="{% url 'page_blog:edit_article' article_id=article.id %}" role="button">Edit</a>
