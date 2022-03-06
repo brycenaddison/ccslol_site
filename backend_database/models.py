@@ -7,14 +7,15 @@ from django.utils import timezone
 
 class Article(models.Model):
     
-    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    author = models.ForeignKey(User, on_delete = models.CASCADE, related_name="post_author")
     title = models.CharField(max_length=256)
     content = models.TextField()
     date_posted = models.DateTimeField(default=timezone.now)
     last_edited = models.DateTimeField(auto_now=True)
+    last_edited_by = models.ForeignKey(User, on_delete = models.CASCADE, null=True, related_name="edit_author")
     
     def __str__(self):
-        return self.title + ', by ' + self.author.username + ', last edited ' + str(self.last_edited)
+        return self.title + ', by ' + self.author.username + ', last edited ' + str(self.last_edited) + ' by ' + self.last_edited_by
 
 
 class Season(models.Model):

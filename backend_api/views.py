@@ -43,6 +43,7 @@ def blog_edit(request):
             article = article_query[0]
             article.title = article_title
             article.content = article_content
+            article.last_edited_by = request.user
             article.save()
 
             messages.add_message(request, messages.SUCCESS, "Article edited!")
